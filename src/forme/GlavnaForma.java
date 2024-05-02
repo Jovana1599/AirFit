@@ -28,7 +28,7 @@ private controller.Controller k;
     public GlavnaForma() {
         initComponents();
         k = Controller.getInstance();
-        ModelTabele mk =  new ModelTabele(k.getKlijenti());
+        ModelTabele mk =  new ModelTabele(k.ucitajListuKlijenataIzBaze());
         jTable.setModel(mk);
         
         
@@ -210,8 +210,8 @@ fk.setVisible(true);
     // End of variables declaration//GEN-END:variables
 
      void osveziPodatke() {
-        ModelTabele mk = (ModelTabele) jTable.getModel();
-        mk.osveziPodatkee();
+        ModelTabele mk =  new ModelTabele(k.ucitajListuKlijenataIzBaze());
+        jTable.setModel(mk);
     }
 
   

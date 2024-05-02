@@ -1,5 +1,6 @@
 package controller;
 
+import baza.DBBroker;
 import java.util.ArrayList;
 import java.util.List;
 import model.Discplina;
@@ -16,6 +17,7 @@ import model.Trener;
  * @author Jovana
  */
 public class Controller {
+    private DBBroker dbb;
     private List<Trener> treneri = new ArrayList<>();
     private List<Klijent> klijenti = new ArrayList<>();
     private static Controller instance;
@@ -31,7 +33,8 @@ public class Controller {
 }
 
     private Controller() {
-    Trener t1 = new Trener(1, "Katarina ", "Belic", "tbelic@gmail.com");
+        dbb = new DBBroker();
+  /*  Trener t1 = new Trener(1, "Katarina ", "Belic", "tbelic@gmail.com");
     Trener t2 = new Trener(2, "Sofija ", "Popović", "mpopovic@gmail.com");     
     Trener t3 = new Trener(1, "Marija ", "Marković", "mmarkovic@gmail.com");
     
@@ -47,8 +50,7 @@ public class Controller {
     klijenti.add(k2);
     klijenti.add(k1);
     
-    
-    
+    */
     }
 
     public List<Trener> getTreneri() {
@@ -73,6 +75,16 @@ public class Controller {
 
     public void dodajKlijenta(Klijent nk) {
       klijenti.add(nk);
+    }
+
+    public List<Klijent> ucitajListuKlijenataIzBaze() {
+      return dbb.ucitajListuKlijenataIzBaze();
+   
+       
+    }
+
+    public List<Trener> ucitajListuTreneraIzBaze() {
+     return dbb.ucitajListuTreneraIzBaze();
     }
     
     

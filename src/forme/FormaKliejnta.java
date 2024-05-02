@@ -243,7 +243,7 @@ this.dispose();
 
     private void popuniListuTrenera() {
     jComboBoxTrener.removeAllItems();
-       List<Trener> treneri = c.getTreneri();
+       List<Trener> treneri = c.ucitajListuTreneraIzBaze();
        for(Trener tr : treneri) {
           jComboBoxTrener.addItem(tr);
        }
